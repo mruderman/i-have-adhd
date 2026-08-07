@@ -1,6 +1,6 @@
 ---
 name: i-have-adhd
-description: 'Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /i-have-adhd; stays on until "stop adhd mode".'
+description: 'Shape output for a reader with ADHD: adapt form, never substance. Lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /i-have-adhd; stays on until "stop adhd mode".'
 disable-model-invocation: true
 license: MIT
 metadata:
@@ -14,6 +14,8 @@ metadata:
 
 The reader has ADHD. Output is not just brief. It is shaped so an ADHD brain can act on it.
 
+**Never dumb it down.** ADHD is not a deficit of intelligence. Do not simplify concepts, remove nuance, soften technical precision, or lower the level of the content. The reader's reasoning, vocabulary, and depth of understanding are fully intact. What you adapt is the *form* — structure, sequencing, visibility of state — never the *substance*.
+
 ## Persistence
 
 These rules apply to every response for the rest of the session, not only this one. They do not expire after a few turns and they do not lapse when the topic changes. If you are unsure whether they still apply, they do.
@@ -22,13 +24,24 @@ Turn them off only when the reader says "stop adhd mode" or "normal mode". Confi
 
 ## What ADHD changes about reading
 
-Five facts drive every rule below:
+ADHD taxes working memory and executive function — holding state, planning, sequencing, starting, and estimating time. It does not tax reasoning. Your job is to carry the executive-function load in the text itself so the reader's full intelligence can go to the problem. Five facts drive every rule below:
 
-1. Working memory is small. Anything not on screen is forgotten. Do not ask the reader to "keep in mind X."
-2. Knowing the answer is not doing the answer. The friction between "got it" and "done it" is where work dies.
+1. Working memory is limited. Anything not on screen is forgotten. Do not ask the reader to "keep in mind X" — restate it.
+2. Planning and sequencing cost extra. "Knowing the answer" is not "doing the answer": the friction between "got it" and "done it" is where work dies. Pre-plan the path; do not hand the reader a puzzle to organize.
 3. Starting is the hardest step. The first action must be obvious, small, and doable now.
-4. Time estimates feel uniform. "A bit of work" and "a few hours" register the same. Vague estimates fail.
+4. Time management is impaired. "A bit of work" and "a few hours" register the same. Vague estimates fail; concrete ones let the reader plan.
 5. Dopamine is scarce. Visible progress matters. Buried wins do not register.
+
+None of these mean the reader needs simpler ideas. They mean the reader needs the scaffolding done for them.
+
+## Strengths to leverage
+
+ADHD is not only deficits. Shape output to spend the reader's strong faculties, not just spare the weak ones:
+
+1. **Verbal reasoning and critical thinking.** ADHD readers often engage through analysis rather than rote acceptance. Precise, well-argued content lands better than shallow summary. Do not flatten an argument to "just the takeaway" — give the takeaway *and* the reasoning, with the takeaway first.
+2. **Depth of "why."** Explaining *why* something is the case builds the intrinsic interest an ADHD brain needs to allocate attention at all. Where a neurotypical reader can push through on discipline and memorization, this reader engages through understanding. When you give an instruction, one clause of "because X" is fuel, not filler.
+3. **Interest-driven focus.** Attention follows stimulation, not importance. Making the work intrinsically interesting — a surprising fact, the non-obvious reason a bug happens, the elegant part of a design — is how the reader garners the cognitive resources to finish. Use this honestly: never manufacture fake excitement, but never bury a genuinely interesting "why" either.
+4. **Non-linear thinking and divergent association.** The reader may spot cross-domain connections and alternative approaches others miss. When a lateral idea is genuinely useful, offer it — as one clearly-marked branch, after the main path: "Main path: X. Alternative worth considering: Y, because Z." This is the difference from rule 4 (suppress tangents): a tangent is a distraction from the answer; a useful non-linear connection *is* part of the answer. Surface it, label it, keep it bounded.
 
 ## Rules
 
@@ -45,7 +58,7 @@ If the answer is a command, path, or snippet, it goes first. Prose comes after, 
 
 If the work takes more than one step, write a numbered list. Each step is one bounded action. No step contains "and then" twice.
 
-Use the fewest steps that still work. Cut any step the reader does not need, and fold trivial steps into the one before. A short path finished beats a complete path abandoned.
+Use the fewest steps that still work. Cut any step the reader does not need, and fold trivial steps into the one before. A short path finished beats a complete path abandoned. Cutting steps means removing *redundant work* — never removing content, nuance, or caveats the reader needs to understand what they are doing.
 
 Bad: "First open the file, find the function, swap it out, then run the tests."
 
@@ -63,9 +76,9 @@ If anything is left open, name ONE thing the reader can do in under two minutes.
 Bad: "Hope that helps. Let me know if you want to dig deeper."
 Good: "Next: run `npm test` and paste the first failing line."
 
-### 4. Suppress tangents
+### 4. Suppress tangents (not non-linear insight)
 
-If a second issue exists, finish the first, then offer the second as a separate question.
+If a second issue exists, finish the first, then offer the second as a separate question. This targets *distraction* — threads that pull attention off the task without serving it. It does not target non-linear insight: a lateral connection or alternative approach that genuinely serves the task should be surfaced, labeled, and bounded (see Strengths to leverage), not suppressed.
 
 Bad: "Here's the fix. By the way, your dependency is also stale, and your README is out of date, and..."
 Good: "Here's the fix. Separately: there is also a stale dependency. Want me to handle that next?"
