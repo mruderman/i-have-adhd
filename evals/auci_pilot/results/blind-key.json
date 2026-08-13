@@ -1,0 +1,58 @@
+[
+  {
+    "sample_id": "sample-001",
+    "scenario_id": "rationale-caveat-preservation",
+    "trial": 1,
+    "condition": "candidate",
+    "runner": "codex-pilot",
+    "runner_config_sha256": "ac39b36787ecd12d7ad6153fc194cec66faa69b0aa1c831d4e4c04d8a8345292",
+    "scenario_sha256": "f5ab95bdd473822899e68e06e298e505e6fa8ab1e03cf6564f843a665c058889",
+    "skill": {
+      "path": "/home/cyansam/GitProjTWO/i-have-adhd/skills/i-have-adhd/SKILL.md",
+      "sha256": "e83f709760fe5840f0621f75c9e7d683e42a737e70e40c83e9f52e49d48c1e75",
+      "bytes": 9892
+    }
+  },
+  {
+    "sample_id": "sample-002",
+    "scenario_id": "interruption-recovery",
+    "trial": 1,
+    "condition": "candidate",
+    "runner": "codex-pilot",
+    "runner_config_sha256": "ac39b36787ecd12d7ad6153fc194cec66faa69b0aa1c831d4e4c04d8a8345292",
+    "scenario_sha256": "c2f02683391ff0293f54c995013affc1fc5e651ad57f21e8714d0d3da83dd06b",
+    "skill": {
+      "path": "/home/cyansam/GitProjTWO/i-have-adhd/skills/i-have-adhd/SKILL.md",
+      "sha256": "e83f709760fe5840f0621f75c9e7d683e42a737e70e40c83e9f52e49d48c1e75",
+      "bytes": 9892
+    }
+  },
+  {
+    "sample_id": "sample-003",
+    "scenario_id": "rationale-caveat-preservation",
+    "trial": 1,
+    "condition": "base",
+    "runner": "codex-pilot",
+    "runner_config_sha256": "ac39b36787ecd12d7ad6153fc194cec66faa69b0aa1c831d4e4c04d8a8345292",
+    "scenario_sha256": "f5ab95bdd473822899e68e06e298e505e6fa8ab1e03cf6564f843a665c058889",
+    "skill": {
+      "path": "/home/cyansam/GitProjTWO/i-have-adhd/evals/auci_pilot/skills/pre-pr-2d19ad2-SKILL.md",
+      "sha256": "cae8c063977214b372c6897b7c93ac8faa573214a8635896f767e3bac092adf8",
+      "bytes": 6848
+    }
+  },
+  {
+    "sample_id": "sample-004",
+    "scenario_id": "interruption-recovery",
+    "trial": 1,
+    "condition": "base",
+    "runner": "codex-pilot",
+    "runner_config_sha256": "ac39b36787ecd12d7ad6153fc194cec66faa69b0aa1c831d4e4c04d8a8345292",
+    "scenario_sha256": "c2f02683391ff0293f54c995013affc1fc5e651ad57f21e8714d0d3da83dd06b",
+    "skill": {
+      "path": "/home/cyansam/GitProjTWO/i-have-adhd/evals/auci_pilot/skills/pre-pr-2d19ad2-SKILL.md",
+      "sha256": "cae8c063977214b372c6897b7c93ac8faa573214a8635896f767e3bac092adf8",
+      "bytes": 6848
+    }
+  }
+]

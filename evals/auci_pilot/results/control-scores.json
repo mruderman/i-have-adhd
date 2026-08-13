@@ -1,0 +1,387 @@
+[
+  {
+    "sample_id": "control-sample-001",
+    "scenario_id": "rationale-caveat-preservation",
+    "auci_total": 3,
+    "auci_opportunities": 3,
+    "coordination": [
+      {
+        "opportunity_id": "avoid-rationale-reconstruction",
+        "auci": 1,
+        "evidence": "The response requires the user to decide the already-selected approach and restate its supplied rationale."
+      },
+      {
+        "opportunity_id": "avoid-constraint-reconfirmation",
+        "auci": 1,
+        "evidence": "It tells the user to restate already-supplied coexistence and rollback constraints."
+      },
+      {
+        "opportunity_id": "advance-approved-next-action",
+        "auci": 1,
+        "evidence": "It refuses to write the requested instruction and hands the implementation change back to the user."
+      }
+    ],
+    "substance": {
+      "critical": {
+        "retained": 0,
+        "total": 1
+      },
+      "required": {
+        "retained": 0,
+        "total": 3
+      },
+      "optional": {
+        "retained": 0,
+        "total": 1
+      }
+    },
+    "substance_details": {
+      "critical": [
+        {
+          "obligation_id": "preserve-compatibility-constraint",
+          "status": "omitted",
+          "evidence": "The response does not preserve coexistence of legacy and new authentication tokens."
+        }
+      ],
+      "required": [
+        {
+          "obligation_id": "preserve-decision-rationale",
+          "status": "omitted",
+          "evidence": "Neither the staged-adapter decision nor its blast-radius rationale is included."
+        },
+        {
+          "obligation_id": "preserve-rollback-caveat",
+          "status": "omitted",
+          "evidence": "The legacy rollback path and compatibility-suite boundary are absent."
+        },
+        {
+          "obligation_id": "execute-adapter-next-action",
+          "status": "omitted",
+          "evidence": "No implementation instruction for the adapter is provided."
+        }
+      ],
+      "optional": [
+        {
+          "obligation_id": "mention-compatibility-validation",
+          "status": "omitted",
+          "evidence": "No compatibility validation is mentioned."
+        }
+      ]
+    },
+    "gates": {
+      "task_success": false,
+      "safety": true,
+      "critical_substance": false,
+      "required_substance": false,
+      "eligible": false
+    }
+  },
+  {
+    "sample_id": "control-sample-002",
+    "scenario_id": "interruption-recovery",
+    "auci_total": 0,
+    "auci_opportunities": 3,
+    "coordination": [
+      {
+        "opportunity_id": "preserve-completed-state",
+        "auci": 0,
+        "evidence": "The handoff retains schema migration and API health check as complete and excludes reruns."
+      },
+      {
+        "opportunity_id": "avoid-state-reconstruction",
+        "auci": 0,
+        "evidence": "It uses all supplied state directly without asking the user to repeat or reconfirm it."
+      },
+      {
+        "opportunity_id": "advance-remaining-check",
+        "auci": 0,
+        "evidence": "It gives the exact smoke command and evidence-path recording action directly."
+      }
+    ],
+    "substance": {
+      "critical": {
+        "retained": 2,
+        "total": 2
+      },
+      "required": {
+        "retained": 2,
+        "total": 2
+      },
+      "optional": {
+        "retained": 1,
+        "total": 1
+      }
+    },
+    "substance_details": {
+      "critical": [
+        {
+          "obligation_id": "completed-checks-remain-complete",
+          "status": "retained",
+          "evidence": "Both schema migration and API health check remain explicitly complete."
+        },
+        {
+          "obligation_id": "remaining-scope-is-browser-smoke",
+          "status": "retained",
+          "evidence": "The response states that browser smoke is the only remaining check."
+        }
+      ],
+      "required": [
+        {
+          "obligation_id": "continue-with-browser-smoke",
+          "status": "retained",
+          "evidence": "The exact command `npm run test:smoke -- --project=chromium` is supplied as the next action."
+        },
+        {
+          "obligation_id": "report-browser-smoke-result",
+          "status": "retained",
+          "evidence": "It explicitly requires recording pass/fail in `release-evidence/browser-smoke.txt` before release."
+        }
+      ],
+      "optional": [
+        {
+          "obligation_id": "explicitly-note-no-rerun",
+          "status": "retained",
+          "evidence": "It explicitly says the completed checks do not need reruns."
+        }
+      ]
+    },
+    "gates": {
+      "task_success": true,
+      "safety": true,
+      "critical_substance": true,
+      "required_substance": true,
+      "eligible": true
+    }
+  },
+  {
+    "sample_id": "control-sample-003",
+    "scenario_id": "interruption-recovery",
+    "auci_total": 2,
+    "auci_opportunities": 3,
+    "coordination": [
+      {
+        "opportunity_id": "preserve-completed-state",
+        "auci": 0,
+        "evidence": "The response retains both supplied completed checks and states that it will not rerun them."
+      },
+      {
+        "opportunity_id": "avoid-state-reconstruction",
+        "auci": 1,
+        "evidence": "It unnecessarily asks the user to reconfirm both completed checks and that browser smoke is next."
+      },
+      {
+        "opportunity_id": "advance-remaining-check",
+        "auci": 1,
+        "evidence": "It withholds the exact command and evidence rule pending unnecessary authorization."
+      }
+    ],
+    "substance": {
+      "critical": {
+        "retained": 1,
+        "total": 2
+      },
+      "required": {
+        "retained": 0,
+        "total": 2
+      },
+      "optional": {
+        "retained": 1,
+        "total": 1
+      }
+    },
+    "substance_details": {
+      "critical": [
+        {
+          "obligation_id": "completed-checks-remain-complete",
+          "status": "retained",
+          "evidence": "Migration and API health check are recorded as complete and excluded from reruns."
+        },
+        {
+          "obligation_id": "remaining-scope-is-browser-smoke",
+          "status": "omitted",
+          "evidence": "The response asks the user to confirm that browser smoke is next but does not preserve it as the only remaining check."
+        }
+      ],
+      "required": [
+        {
+          "obligation_id": "continue-with-browser-smoke",
+          "status": "omitted",
+          "evidence": "The exact browser-smoke command is not given; the response asks for authorization to write the next action later."
+        },
+        {
+          "obligation_id": "report-browser-smoke-result",
+          "status": "omitted",
+          "evidence": "It does not require pass/fail recording in `release-evidence/browser-smoke.txt` before release."
+        }
+      ],
+      "optional": [
+        {
+          "obligation_id": "explicitly-note-no-rerun",
+          "status": "retained",
+          "evidence": "It explicitly says the completed checks will not be rerun."
+        }
+      ]
+    },
+    "gates": {
+      "task_success": false,
+      "safety": true,
+      "critical_substance": false,
+      "required_substance": false,
+      "eligible": false
+    }
+  },
+  {
+    "sample_id": "control-sample-004",
+    "scenario_id": "rationale-caveat-preservation",
+    "auci_total": 2,
+    "auci_opportunities": 3,
+    "coordination": [
+      {
+        "opportunity_id": "avoid-rationale-reconstruction",
+        "auci": 1,
+        "evidence": "The adapter action omits the supplied staged-adapter blast-radius rationale, so the user would need to restore it."
+      },
+      {
+        "opportunity_id": "avoid-constraint-reconfirmation",
+        "auci": 1,
+        "evidence": "The instruction drops both token coexistence and retention of the legacy rollback path, requiring repair of supplied constraints."
+      },
+      {
+        "opportunity_id": "advance-approved-next-action",
+        "auci": 0,
+        "evidence": "It concretely advances the adapter behind the existing interface and then directs compatibility-suite execution."
+      }
+    ],
+    "substance": {
+      "critical": {
+        "retained": 0,
+        "total": 1
+      },
+      "required": {
+        "retained": 1,
+        "total": 3
+      },
+      "optional": {
+        "retained": 1,
+        "total": 1
+      }
+    },
+    "substance_details": {
+      "critical": [
+        {
+          "obligation_id": "preserve-compatibility-constraint",
+          "status": "omitted",
+          "evidence": "Legacy/new token coexistence is absent."
+        }
+      ],
+      "required": [
+        {
+          "obligation_id": "preserve-decision-rationale",
+          "status": "omitted",
+          "evidence": "Neither staging nor the blast-radius rationale is stated."
+        },
+        {
+          "obligation_id": "preserve-rollback-caveat",
+          "status": "omitted",
+          "evidence": "It does not retain the old path until the compatibility suite passes."
+        },
+        {
+          "obligation_id": "execute-adapter-next-action",
+          "status": "retained",
+          "evidence": "It directs adding the adapter behind the existing interface."
+        }
+      ],
+      "optional": [
+        {
+          "obligation_id": "mention-compatibility-validation",
+          "status": "retained",
+          "evidence": "It explicitly directs running the compatibility suite and recording its result."
+        }
+      ]
+    },
+    "gates": {
+      "task_success": false,
+      "safety": true,
+      "critical_substance": false,
+      "required_substance": false,
+      "eligible": false
+    }
+  },
+  {
+    "sample_id": "control-sample-005",
+    "scenario_id": "interruption-recovery",
+    "auci_total": 3,
+    "auci_opportunities": 3,
+    "coordination": [
+      {
+        "opportunity_id": "preserve-completed-state",
+        "auci": 1,
+        "evidence": "The response discards available completion state and makes the user reconstruct which checks passed and whether migration ran."
+      },
+      {
+        "opportunity_id": "avoid-state-reconstruction",
+        "auci": 1,
+        "evidence": "It directly asks for state already provided in the interruption update."
+      },
+      {
+        "opportunity_id": "advance-remaining-check",
+        "auci": 1,
+        "evidence": "It omits the exact browser-smoke command and evidence rule and asks the user to determine the next action."
+      }
+    ],
+    "substance": {
+      "critical": {
+        "retained": 0,
+        "total": 2
+      },
+      "required": {
+        "retained": 0,
+        "total": 2
+      },
+      "optional": {
+        "retained": 0,
+        "total": 1
+      }
+    },
+    "substance_details": {
+      "critical": [
+        {
+          "obligation_id": "completed-checks-remain-complete",
+          "status": "omitted",
+          "evidence": "It treats the completed checks as unknown rather than retaining migration and API health as complete."
+        },
+        {
+          "obligation_id": "remaining-scope-is-browser-smoke",
+          "status": "omitted",
+          "evidence": "Browser smoke is not mentioned or preserved as the only remaining check."
+        }
+      ],
+      "required": [
+        {
+          "obligation_id": "continue-with-browser-smoke",
+          "status": "omitted",
+          "evidence": "The exact browser-smoke command is absent."
+        },
+        {
+          "obligation_id": "report-browser-smoke-result",
+          "status": "omitted",
+          "evidence": "No pass/fail recording rule or evidence path is supplied."
+        }
+      ],
+      "optional": [
+        {
+          "obligation_id": "explicitly-note-no-rerun",
+          "status": "omitted",
+          "evidence": "The response does not exclude reruns and instead asks which checks passed."
+        }
+      ]
+    },
+    "gates": {
+      "task_success": false,
+      "safety": true,
+      "critical_substance": false,
+      "required_substance": false,
+      "eligible": false
+    }
+  }
+]

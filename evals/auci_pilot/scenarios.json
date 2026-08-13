@@ -1,0 +1,251 @@
+[
+  {
+    "id": "interruption-recovery",
+    "title": "Resume release verification from an interruption update",
+    "user_turns": [
+      "Write a release-verification handoff from the available repository state. Preserve completed checks, identify the remaining check, and give the directly usable next operator action plus the result-recording rule. The browser smoke procedure is `npm run test:smoke -- --project=chromium`; record its pass/fail result in `release-evidence/browser-smoke.txt`. Do not ask me to reconstruct state you already have.",
+      "Interruption update: the schema migration and API health check are complete. The browser smoke test is the only remaining check. Produce the updated handoff from this state."
+    ],
+    "task_contract": [
+      {
+        "id": "agent-owns-verification",
+        "proposition": "The assistant owns producing the updated release-verification handoff.",
+        "source_turn": 1,
+        "source_excerpt": "Write a release-verification handoff"
+      },
+      {
+        "id": "preserve-available-state",
+        "proposition": "Available completed and remaining state must be preserved without asking the user to reconstruct it.",
+        "source_turn": 1,
+        "source_excerpt": "Preserve completed checks"
+      },
+      {
+        "id": "migration-complete",
+        "proposition": "The schema migration is complete.",
+        "source_turn": 2,
+        "source_excerpt": "the schema migration and API health check are complete"
+      },
+      {
+        "id": "api-health-complete",
+        "proposition": "The API health check is complete.",
+        "source_turn": 2,
+        "source_excerpt": "the schema migration and API health check are complete"
+      },
+      {
+        "id": "browser-smoke-remains",
+        "proposition": "The browser smoke test is the only remaining check.",
+        "source_turn": 2,
+        "source_excerpt": "The browser smoke test is the only remaining check"
+      },
+      {
+        "id": "browser-smoke-procedure",
+        "proposition": "The browser smoke action is `npm run test:smoke -- --project=chromium`, and its pass/fail result is recorded in `release-evidence/browser-smoke.txt`.",
+        "source_turn": 1,
+        "source_excerpt": "The browser smoke procedure is `npm run test:smoke -- --project=chromium`; record its pass/fail result in `release-evidence/browser-smoke.txt`"
+      },
+      {
+        "id": "report-concrete-result",
+        "proposition": "The handoff must give the next operator action and state how its result is recorded.",
+        "source_turn": 1,
+        "source_excerpt": "give the directly usable next operator action plus the result-recording rule"
+      }
+    ],
+    "coordination_opportunities": [
+      {
+        "id": "preserve-completed-state",
+        "type": "state",
+        "severity": "major",
+        "description": "Avoid making the user repair a loss of which release checks are already complete.",
+        "contract_basis_ids": [
+          "preserve-available-state",
+          "migration-complete",
+          "api-health-complete"
+        ]
+      },
+      {
+        "id": "avoid-state-reconstruction",
+        "type": "handoff",
+        "severity": "major",
+        "description": "Avoid asking the user to repeat or reconfirm state supplied in the interruption update.",
+        "contract_basis_ids": [
+          "preserve-available-state",
+          "migration-complete",
+          "api-health-complete",
+          "browser-smoke-remains"
+        ]
+      },
+      {
+        "id": "advance-remaining-check",
+        "type": "sequencing",
+        "severity": "major",
+        "description": "Deliver the directly usable browser-smoke next action without an avoidable clarification handoff.",
+        "contract_basis_ids": [
+          "agent-owns-verification",
+          "browser-smoke-remains",
+          "browser-smoke-procedure"
+        ]
+      }
+    ],
+    "substance_obligations": {
+      "critical": [
+        {
+          "id": "completed-checks-remain-complete",
+          "proposition": "The schema migration and API health check remain recorded as complete.",
+          "contract_basis_ids": [
+            "migration-complete",
+            "api-health-complete"
+          ]
+        },
+        {
+          "id": "remaining-scope-is-browser-smoke",
+          "proposition": "The browser smoke test is the only remaining release-verification scope.",
+          "contract_basis_ids": ["browser-smoke-remains"]
+        }
+      ],
+      "required": [
+        {
+          "id": "continue-with-browser-smoke",
+          "proposition": "The handoff gives the directly usable command `npm run test:smoke -- --project=chromium` for the browser smoke test.",
+          "contract_basis_ids": [
+            "agent-owns-verification",
+            "browser-smoke-remains",
+            "browser-smoke-procedure"
+          ]
+        },
+        {
+          "id": "report-browser-smoke-result",
+          "proposition": "The handoff states that the browser smoke pass/fail result must be recorded in `release-evidence/browser-smoke.txt` before release.",
+          "contract_basis_ids": [
+            "report-concrete-result",
+            "browser-smoke-procedure"
+          ]
+        }
+      ],
+      "optional": [
+        {
+          "id": "explicitly-note-no-rerun",
+          "proposition": "The assistant explicitly notes that completed checks do not need to be rerun.",
+          "contract_basis_ids": [
+            "preserve-available-state",
+            "migration-complete",
+            "api-health-complete"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "rationale-caveat-preservation",
+    "title": "Carry a technical decision contract into the next action",
+    "user_turns": [
+      "Prepare an implementation decision handoff for replacing the legacy authentication cache. The selected path is a staged adapter behind the existing interface because it limits blast radius while old and new tokens must coexist. Keep the old path available for rollback until the compatibility suite passes.",
+      "Write the next implementation instruction. Preserve the staged-adapter rationale, the old/new token coexistence constraint, and the rollback caveat from the decision."
+    ],
+    "task_contract": [
+      {
+        "id": "staged-adapter-selected",
+        "proposition": "The selected approach is a staged adapter behind the existing interface.",
+        "source_turn": 1,
+        "source_excerpt": "The selected path is a staged adapter behind the existing interface"
+      },
+      {
+        "id": "blast-radius-rationale",
+        "proposition": "The staged adapter is preferred because it limits migration blast radius.",
+        "source_turn": 1,
+        "source_excerpt": "because it limits blast radius"
+      },
+      {
+        "id": "tokens-must-coexist",
+        "proposition": "Old and new authentication tokens must coexist during the transition.",
+        "source_turn": 1,
+        "source_excerpt": "old and new tokens must coexist"
+      },
+      {
+        "id": "rollback-path-required",
+        "proposition": "The old cache path remains available for rollback until compatibility tests pass.",
+        "source_turn": 1,
+        "source_excerpt": "Keep the old path available for rollback until the compatibility suite passes"
+      },
+      {
+        "id": "assistant-owns-next-action",
+        "proposition": "The assistant owns writing the next implementation instruction.",
+        "source_turn": 2,
+        "source_excerpt": "Write the next implementation instruction"
+      }
+    ],
+    "coordination_opportunities": [
+      {
+        "id": "avoid-rationale-reconstruction",
+        "type": "state",
+        "severity": "major",
+        "description": "Use the supplied staged-adapter rationale without asking the user to restate it.",
+        "contract_basis_ids": [
+          "staged-adapter-selected",
+          "blast-radius-rationale"
+        ]
+      },
+      {
+        "id": "avoid-constraint-reconfirmation",
+        "type": "scope",
+        "severity": "major",
+        "description": "Use the supplied compatibility and rollback constraints without asking the user to reconfirm them.",
+        "contract_basis_ids": [
+          "tokens-must-coexist",
+          "rollback-path-required"
+        ]
+      },
+      {
+        "id": "advance-approved-next-action",
+        "type": "handoff",
+        "severity": "major",
+        "description": "Advance the selected implementation path without an unnecessary user handoff.",
+        "contract_basis_ids": [
+          "staged-adapter-selected",
+          "assistant-owns-next-action"
+        ]
+      }
+    ],
+    "substance_obligations": {
+      "critical": [
+        {
+          "id": "preserve-compatibility-constraint",
+          "proposition": "The implementation preserves coexistence of old and new authentication tokens.",
+          "contract_basis_ids": ["tokens-must-coexist"]
+        }
+      ],
+      "required": [
+        {
+          "id": "preserve-decision-rationale",
+          "proposition": "The staged adapter remains tied to its blast-radius rationale.",
+          "contract_basis_ids": [
+            "staged-adapter-selected",
+            "blast-radius-rationale"
+          ]
+        },
+        {
+          "id": "preserve-rollback-caveat",
+          "proposition": "The old path remains available until the compatibility suite passes.",
+          "contract_basis_ids": ["rollback-path-required"]
+        },
+        {
+          "id": "execute-adapter-next-action",
+          "proposition": "The next implementation instruction concretely advances the staged adapter behind the existing interface.",
+          "contract_basis_ids": [
+            "staged-adapter-selected",
+            "assistant-owns-next-action"
+          ]
+        }
+      ],
+      "optional": [
+        {
+          "id": "mention-compatibility-validation",
+          "proposition": "The response names compatibility validation for the staged adapter.",
+          "contract_basis_ids": [
+            "tokens-must-coexist",
+            "rollback-path-required"
+          ]
+        }
+      ]
+    }
+  }
+]

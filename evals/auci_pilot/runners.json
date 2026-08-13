@@ -1,0 +1,13 @@
+{
+  "codex-pilot": {
+    "command": [
+      "bash",
+      "scripts/run_codex_auci_pilot.sh"
+    ],
+    "response_format": "codex-jsonl",
+    "model": "gpt-5.6-luna",
+    "codex_cli_version": "0.147.0",
+    "runner_script": "scripts/run_codex_auci_pilot.sh",
+    "runner_script_sha256": "35999eb238486c65804214d6bb3b0aa2f2606248ea2811fcf64c6b0349580789"
+  }
+}

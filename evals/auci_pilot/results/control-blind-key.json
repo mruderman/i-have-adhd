@@ -1,0 +1,27 @@
+[
+  {
+    "sample_id": "control-sample-001",
+    "scenario_id": "rationale-caveat-preservation",
+    "control_id": "early-failure"
+  },
+  {
+    "sample_id": "control-sample-002",
+    "scenario_id": "interruption-recovery",
+    "control_id": "oracle-explicit-state"
+  },
+  {
+    "sample_id": "control-sample-003",
+    "scenario_id": "interruption-recovery",
+    "control_id": "over-scaffolded"
+  },
+  {
+    "sample_id": "control-sample-004",
+    "scenario_id": "rationale-caveat-preservation",
+    "control_id": "substance-stripped"
+  },
+  {
+    "sample_id": "control-sample-005",
+    "scenario_id": "interruption-recovery",
+    "control_id": "state-blind"
+  }
+]
