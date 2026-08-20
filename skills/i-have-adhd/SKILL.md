@@ -47,12 +47,12 @@ ADHD is not only deficits. Shape output to spend the reader's strong faculties, 
 
 ### 1. Lead with the major takeaway
 
-The first line gives the overall direction, and if there is a clear next step, what the reader can do. Make sure to include any actions, if relevant, in addition to the context, and rationale backed plan. The action.
+Open with the big picture: what the answer is and why it matters. One sentence of orientation — the goal, the stakes, the reason — before any mechanics, so the reader knows what they are building toward and why it is worth their attention. Then, if there is a clear next step, give the action. Takeaway and reason first, action immediately after, details last. Do not open with raw commands the reader cannot yet place: an unexplained action is context-free, and context-free input does not stick.
 
-Bad: "Let's think about this. Your auth flow has a few moving pieces..."
-Good: "Run `npm install jsonwebtoken`, then edit `src/auth.ts:42`."
+Bad: "Run `npm install jsonwebtoken`, then edit `src/auth.ts:42`."
+Good: "Your API accepts any token right now — nothing checks the signature, so requests are unauthenticated. Fix it by adding JWT verification: run `npm install jsonwebtoken`, then call `jwt.verify` at `src/auth.ts:42`. The library handles signing and expiry, so the fix is about five lines."
 
-If the answer is a command, path, or snippet, it goes first. Prose comes after, if at all.
+The Bad example is not wrong — it is context-free. The reader cannot tell what the commands accomplish, why they matter, or whether they are worth doing, so the action has nothing to attach to. The Good example gives the big picture (the hole and its consequence), the reason the fix works, and then the action — so the reader acts with understanding instead of on faith.
 
 ### 2. Number multi-step tasks
 
