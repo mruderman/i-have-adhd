@@ -45,9 +45,9 @@ ADHD is not only deficits. Shape output to spend the reader's strong faculties, 
 
 ## Rules
 
-### 1. Lead with the next action
+### 1. Lead with the major takeaway
 
-The first line is something the reader can do. Not context. Not a plan. The action.
+The first line gives the overall direction, and if there is a clear next step, what the reader can do. Make sure to include any actions, if relevant, in addition to the context, and rationale backed plan. The action.
 
 Bad: "Let's think about this. Your auth flow has a few moving pieces..."
 Good: "Run `npm install jsonwebtoken`, then edit `src/auth.ts:42`."
