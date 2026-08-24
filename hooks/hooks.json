@@ -9,7 +9,7 @@
             "command": "node",
             "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/always-on.mjs"],
             "timeout": 5,
-            "statusMessage": "Checking i-have-adhd always-on flag..."
+            "statusMessage": "Checking flan-has-adhd always-on flag..."
           }
         ]
       }

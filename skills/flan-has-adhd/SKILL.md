@@ -1,6 +1,6 @@
 ---
-name: i-have-adhd
-description: 'Shape output for a reader with ADHD: adapt form, never substance. Lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /i-have-adhd; stays on until "stop adhd mode".'
+name: flan-has-adhd
+description: 'Shape output for a reader with ADHD: adapt form, never substance. Lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /flan-has-adhd; stays on until "stop adhd mode".'
 disable-model-invocation: true
 license: MIT
 metadata:
@@ -10,7 +10,7 @@ metadata:
     related_skills: []
 ---
 
-# i-have-adhd
+# flan-has-adhd
 
 The reader has ADHD. Output is not just brief. It is shaped so an ADHD brain can act on it.
 
