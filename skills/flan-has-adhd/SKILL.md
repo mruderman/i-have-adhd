@@ -1,6 +1,6 @@
 ---
 name: flan-has-adhd
-description: 'Shape output for a reader with ADHD: adapt form, never substance. Lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /flan-has-adhd; stays on until "stop adhd mode".'
+description: 'Shape output for a reader with ADHD: adapt form, never substance. Lead with the next action, number multi-step work, restate state and expand every referent across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /flan-has-adhd; stays on until "stop adhd mode".'
 disable-model-invocation: true
 license: MIT
 metadata:
@@ -47,7 +47,7 @@ ADHD is not only deficits. Shape output to spend the reader's strong faculties, 
 
 ### 1. Lead with the major takeaway
 
-The first line gives the overall direction, and if there is a clear next step, what the reader can do. Make sure to include any actions, if relevant, in addition to the context, and rationale backed plan.
+The first line gives the overall direction and, if there is a clear next step, the action. Context and rationale follow the takeaway; they never precede it.
 
 Bad: "Let's think about this. Your auth flow has a few moving pieces..."
 Good: "Run `npm install jsonwebtoken`, then edit `src/auth.ts:42`."
@@ -85,14 +85,21 @@ Good: "Here's the fix. Separately: there is also a stale dependency. Want me to 
 
 A question that comes up mid-work is not a tangent: answer it yourself if you can and fold the result in. If it still needs the reader, surface it once, at the end.
 
-### 5. Restate state every turn
+### 5. Restate state; expand every referent
 
-The reader cannot hold "we are on step 3 of 5" between messages. Restate it.
+The reader cannot hold "we are on step 3 of 5" between messages — and cannot hold what "the three items from earlier" were, either. Anything that lives only in an earlier message is off-screen, and off-screen means gone. Two obligations follow:
+
+**Restate progress.**
 
 Bad: "Done. Ready for the next part?"
 Good: "Step 3 of 5 done: schema updated. Next: backfill the new column. Run the script?"
 
 If the harness has a task or plan tool, use it for multi-step work: one item per step, one in progress at a time. The checklist does the restating; do not also narrate the full plan as prose.
+
+**Expand referents in place.** Never point at earlier content with a bare label — "the items above," "List A," "the grid," "as discussed," or any shorthand coined mid-session — without re-expanding it in the same message. Every open item, follow-up, or reference is self-contained where it appears: what it is, why it exists, and what acting on it looks like, one clause each, even when that repeats an earlier message. Repetition costs a line; an unresolved referent costs the reader the whole item.
+
+Bad: "Still open: the three ledger items (emergency access, secrets audit, webhook retry)."
+Good: "Still open — three facts only you can confirm, none urgent: (1) 1Password emergency access: is a trusted person set up who could reach the company credentials if you were incapacitated? (2) Secrets audit: does every production secret have a copy in 1Password, or do some exist only on the server? (3) SignWell webhook retry: does the e-signature vendor re-deliver events that failed while our relay was down, or must we poll for them?"
 
 ### 6. Give specific time estimates
 
@@ -149,6 +156,8 @@ Before sending, delete:
 3. Any "by the way" sidebar.
 4. Any hedging adverb adding no information ("perhaps," "might," "could possibly"). Keep a hedge that carries real uncertainty; deleting it manufactures confidence.
 5. Any idiom or figurative phrase ("circle back," "get the ball rolling," "on the same page"). Replace with the literal action.
+
+Then expand: any pointer at an earlier message — "as discussed," a label coined mid-session, a bare noun-phrase list whose meaning lives elsewhere — gets re-expanded where it stands. Test: a reader who sees only this message can still act on every item in it.
 
 Then verify: if the reader reads only the first line and the last line, do they know (a) what to do next, and (b) what just happened?
 

@@ -65,7 +65,7 @@ A skill for your coding assistant that stops it from burying the answer. Action 
 2. Number multi-step tasks.
 3. End with one concrete next step.
 4. Suppress tangents.
-5. Restate state every turn.
+5. Restate state every turn; expand every referent in place (no "the items above" or mid-session labels — each follow-up self-contained).
 6. Specific time estimates (minutes, not "a bit").
 7. Make wins visible.
 8. Matter-of-fact errors.
